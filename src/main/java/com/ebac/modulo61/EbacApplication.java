@@ -1,13 +1,22 @@
 package com.ebac.modulo61;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EbacApplication {
+public class EbacApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EbacApplication.class, args);
-	}
+    @Autowired
+    private Contexto contexto;
 
+    public static void main(String[] args) {
+        SpringApplication.run(EbacApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
+        contexto.ejecutar();
+    }
 }
